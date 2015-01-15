@@ -1,0 +1,34 @@
+<!-- Requires EE v2.9.2, Bootstrap v3.3.1, Channel Entries, PVL Increment, Channel Images -->
+
+<!-- Product Item Slideshow -->
+{exp:channel:entries channel='products' dynamic='yes' url_title='{segment_3}' limit='1' disable='category_fields|member_data|pagination|trackbacks'}
+<header id="product-slideshow" class="carousel slide" data-ride="carousel">
+	<!-- Indicators -->
+	<ol class="carousel-indicators">
+		{exp:channel_images:images entry_id='{entry_id}'}
+		<li data-target="#product-slideshow" data-slide-to="{exp:pvl_increment id='product-slide' random start='0' step='1'}"></li>
+		{/exp:channel_images:images}
+	</ol>
+	<div class="carousel-inner" role="listbox">
+		{exp:channel_images:images entry_id='{entry_id}' cover_only='yes'}
+		<div class="item active">
+			{exp:ce_img:pair src='{image:url}' allow_scale_larger='yes' quality="80" cache_dir='/cache/'}
+			<div class="fill" style="background-image:url('{made}');"></div>
+			{/exp:ce_img:pair}
+			<div class="carousel-caption">
+				<h1>{title}</h1>
+			</div>
+		</div>
+		{/exp:channel_images:images}
+		{exp:channel_images:images entry_id='{entry_id}' skip_cover='yes'}
+		<div class="item">
+			{exp:ce_img:pair src='{image:url}' allow_scale_larger='yes' quality="80" cache_dir='/cache/'}
+			<div class="fill" style="background-image:url('{made}');"></div>
+			{/exp:ce_img:pair}
+			<div class="carousel-caption">
+				<h1>{title}</h1>
+			</div>
+		</div>
+		{/exp:channel_images:images}
+	</div>
+</header>
