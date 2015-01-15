@@ -1,0 +1,32 @@
+<!-- Requires EE v2.9.2, Bootstrap v3.3.1, JQuery, Low Variables, PVL Increment -->
+
+<!-- Page Header Slideshow -->
+<header id="myCarousel" class="carousel slide">
+	<!-- Indicators -->
+	<ol class="carousel-indicators">
+		<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+		
+		<!-- BROKEN -->
+		{exp:low_variables:pair var='lv_frontpage-slideshow' offset='1'}
+		<li data-target="#myCarousel" data-slide-to="{exp:pvl_increment id='BROKEN' increment='yes' random start='1' step='1'}"></li>
+		{/exp:low_variables:pair}
+		<!-- // BROKEN -->
+	</ol>
+	
+	<!-- Slides -->
+	<!-- Note: Images are used for the 'background' element of a 'div class="fill"' -->
+	<div class="carousel-inner">
+		<!-- First Image taken -->
+		<div class="item active">
+			{exp:low_variables:pair var='lv_slideshow' limit='1'}
+			<div class="fill" style="background-image:url('{lv_slideshow:slideshow-image}');"></div>
+			{/exp:low_variables:pair}
+		</div>
+		<!-- Subsequent Images -->
+		{exp:low_variables:pair var='lv_frontpage-slideshow' offset='1'}
+		<div class="item">
+			<div class="fill" style="background-image:url('{lv_slideshow:slideshow-image}');"></div>
+		</div>
+		{/exp:low_variables:pair}
+	</div>
+</header>
