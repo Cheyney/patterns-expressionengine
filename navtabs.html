@@ -1,0 +1,67 @@
+<!-- Requires EE v2.9.2, Bootstrap v3.3.1, Low Variables -->
+
+<div class="row">
+	<div class="col-xs-12">
+
+		<!-- Tab Navigation-->
+		<ul class="nav nav-tabs navtablinks-pure nav-justified">
+			<li role="presentation" class="active" ><a href="#company" aria-controls="company" role="tab" data-toggle="tab"><h1>{lv_company_heading}</h1></a></li>
+			<li role="presentation"><a href="#team" aria-controls="team" role="tab" data-toggle="tab"><h1>Team</h1></a></li>
+		</ul>
+		
+		<!-- Tab Panes -->
+		<div role="tabpanel">
+			<div class="tab-content">
+				<!-- Company -->
+				<div role="tabpanel" class="tab-pane fade" id="company">
+					<div class="row">
+						<div class="col-xs-12">
+							<h2>{lv_company_heading}</h2>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12 col-md-6">
+							{lv_company_left}
+						</div>
+						<div class="col-xs-12 col-md-6">
+							{lv_company_right}
+						</div>
+					</div>
+					<div class="row">
+						{exp:low_variables:pair var='lv_companypics'}
+						<div class="col-xs-12 col-md-3">
+							<img class="img-responsive"  src="{lv_companypics:company_image}" alt="{lv_companypics:company_image_description}">
+						</div>
+						{/exp:low_variables:pair}	
+					</div>
+				</div>
+
+				<!-- Team -->
+				<div role="tabpanel" class="tab-pane fade" id="team">
+					<div class="row">
+						<div class="col-xs-12">
+							<h2>{lv_team_heading}</h2>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12 col-md-6">
+							{lv_team_text_left}
+						</div>
+						<div class="col-xs-12 col-md-6">
+							{lv_team_text_right}
+						</div>
+					</div>
+					<div class="row">
+						{exp:low_variables:pair var='lv_teammembers'}
+						<div class="col-xs-12 col-md-3">
+							<img class="img-responsive"  src="{lv_teammembers:team_member_image}" alt="{lv_teammembers:team_member_name}">
+							<h3 class="text-right">{lv_teammembers:team_member_name}</h3>
+						</div>
+						{/exp:low_variables:pair}	
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
